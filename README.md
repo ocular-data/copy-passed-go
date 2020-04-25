@@ -12,6 +12,8 @@
 - [x] use command to paste
 - [x] copy globally from local clipboard
 - [x] save to local clipboard on global copy
+- [ ] select in history what to paste
+- [ ] access groups clipboard
 
 ---
 
