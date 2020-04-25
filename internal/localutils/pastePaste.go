@@ -15,7 +15,7 @@ func Paste() {
 
 func Copy(data string) {
 	if err := clipboard.WriteAll(data); err != nil {
-		fmt.Println("There was a problem copying to the computers clipboard")
+		fmt.Println("There was a problem copying to the computers local clipboard")
 	}
 
 	defer GenerateNewTokenOnError(func() {
