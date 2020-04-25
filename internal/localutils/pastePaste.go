@@ -19,7 +19,7 @@ func Copy(data string) {
 	}
 
 	defer GenerateNewTokenOnError(func() {
-		fmt.Printf("There was an error with you token...\nplease run the command again to copy\n")
+		Copy(data)
 	})
 	token := RetrieveToken()
 	fireboardtools.SetClipboard(token, data)
