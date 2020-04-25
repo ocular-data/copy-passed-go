@@ -5,8 +5,6 @@
 
 [site](https://copy-passed.web.app)
 
-[Download app](https://github.com/ocular-data/copy-passed-android/releases/latest)
-
 ---
 
 ## Features
