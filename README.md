@@ -27,7 +27,7 @@
 ---
 
 ### explanations
-This app allows uses to copy paste text cross
+This app allows users to copy paste text cross
 platforms as long as they have internet.
 
 This app can be used to by piping into and out of 
