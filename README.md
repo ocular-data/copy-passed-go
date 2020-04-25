@@ -61,6 +61,8 @@ $ goboard
  
 ## Install
 
+[Installing GO](https://golang.org/doc/install)
+
 ```
 go get -u github.com/ocular-data/copy-passed-go/cmd/goboard
 ```
