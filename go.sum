@@ -1,0 +1,6 @@
+github.com/atotto/clipboard v0.1.2 h1:YZCtFu5Ie8qX2VmVTBnrqLSiU9XOWwqNRmdT3gIQzbY=
+github.com/atotto/clipboard v0.1.2/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
+github.com/bobziuchkovski/writ v0.8.9 h1:CmGIyXTjqB80xA6Zc6Mo0sFi1nJCNaNPY87Wy2O4Ao8=
+github.com/bobziuchkovski/writ v0.8.9/go.mod h1:9Gn0SdqhTzX/Q8WBvJ6tfj/Iw6A6B78wQtpJ2r7Ep0E=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
