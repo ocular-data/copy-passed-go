@@ -46,7 +46,7 @@ $ goboard
 ## Install
 
 ```
-go get github.com/ocular-data/copy-passed-go
+go get github.com/ocular-data/copy-passed-go/cmd/goboard
 ```
 
 ---
