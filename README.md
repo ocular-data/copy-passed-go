@@ -45,6 +45,8 @@ $ goboard -h
    -c, --clipboard           Copy from the computers clipboard instead of stdin
    -r, --re-authenticate     Revoke token registered to computer and register new
                               one
+   -s, --save                Save the output of the global clipboard to the local
+                              one
  
  By default, goboard copys from stdin and pastes to stdout. Use the -c option to override.
 ```
@@ -60,7 +62,7 @@ $ goboard
 ## Install
 
 ```
-go get github.com/ocular-data/copy-passed-go/cmd/goboard
+go get -u github.com/ocular-data/copy-passed-go/cmd/goboard
 ```
 
 ---

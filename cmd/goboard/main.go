@@ -2,10 +2,8 @@ package main
 
 import (
 	"errors"
-	"github.com/atotto/clipboard"
 	"github.com/bobziuchkovski/writ"
 	"github.com/ocular-data/copy-passed-go/internal/localutils"
-	"github.com/ocular-data/copy-passed-go/pkg/fireboardtools"
 	"io/ioutil"
 	"os"
 )
@@ -14,6 +12,7 @@ type CopyPassed struct {
 	HelpFlag  bool `flag:"h, help" description:"Display this help message and exit"`
 	Clipboard bool `flag:"c, clipboard" description:"Copy from the computers clipboard instead of stdin"`
 	Revoke    bool `flag:"r, re-authenticate" description:"Revoke token registered to computer and register new one"`
+	Save      bool `flag:"s, save" description:"Save the output of the global clipboard to the local one"`
 }
 
 func main() {
@@ -33,26 +32,17 @@ func main() {
 	}
 
 	if copyPassed.Clipboard {
-		text, err := clipboard.ReadAll()
-		if err != nil {
-			panic(err)
-		}
-		localutils.Copy(text)
+		localutils.CopyLocal()
 		return
 	}
 
 	if copyPassed.Revoke {
-		token := localutils.RetrieveToken()
-		defer func() {
-			if r := recover(); r != nil {
-				err := r.(error)
-				if err.Error() == "Bad Token" {
-					localutils.RetrieveToken(true)
-				}
-			}
-		}()
-		fireboardtools.RevokeToken(token)
-		localutils.RetrieveToken(true)
+		localutils.ReissueKey()
+		return
+	}
+
+	if copyPassed.Save {
+		localutils.ToLocalPaste()
 		return
 	}
 
