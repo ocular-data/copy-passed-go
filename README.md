@@ -63,10 +63,18 @@ $ goboard
 
 [Installing GO](https://golang.org/doc/install)
 
+All platforms:
 ```
 go get -u github.com/ocular-data/copy-passed-go/cmd/goboard
 ```
 
+You might also have to add the go bin directory to your path
+
+On Linux and OSX:
+```bash
+$  export PATH=$HOME/go/bin:$PATH
+```
+
 ---
 
-inspired by [atotto/clipboard](https://github.com/atotto/clipboard)
+Inspired by [atotto/clipboard](https://github.com/atotto/clipboard)
