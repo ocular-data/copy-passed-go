@@ -20,7 +20,7 @@ func main() {
 	cmd := writ.New("greeter", copyPassed)
 	cmd.Help.Usage = "Usage: [PIPE IN] goboard [OPTION]"
 	cmd.Help.Header = "Copy Paste across multiple interfaces"
-	cmd.Help.Footer = "By default, goboard copys from stdin and pastes to stdout. Use the -c option to override."
+	cmd.Help.Footer = "By default, goboard copys from stdin and pastes to stdout. Use the -c and -s options to override."
 
 	_, positional, err := cmd.Decode(os.Args[1:])
 	if err != nil || copyPassed.HelpFlag {
