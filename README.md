@@ -48,7 +48,7 @@ $ goboard -h
    -s, --save                Save the output of the global clipboard to the local
                               one
  
- By default, goboard copys from stdin and pastes to stdout. Use the -c option to override.
+ By default, goboard copys from stdin and pastes to stdout. Use the -c and -s options to override.
 ```
 ```bash
 $ echo 12 | goboard
