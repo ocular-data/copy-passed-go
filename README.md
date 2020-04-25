@@ -5,8 +5,6 @@
 
 [site](https://copy-passed.web.app)
 
-[Download app](https://github.com/ocular-data/copy-passed-android/releases/latest)
-
 ---
 
 ## Features
@@ -14,6 +12,8 @@
 - [x] use command to paste
 - [x] copy globally from local clipboard
 - [x] save to local clipboard on global copy
+- [ ] select in history what to paste
+- [ ] access groups clipboard
 
 ---
 
