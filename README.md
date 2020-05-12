@@ -14,6 +14,7 @@
 - [x] save to local clipboard on global copy
 - [ ] select in history what to paste
 - [ ] access groups clipboard
+- [ ] print a barcode or a QR code for authentication with app
 
 ---
 
