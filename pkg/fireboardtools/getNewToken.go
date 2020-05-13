@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+
+	"github.com/ocular-data/copy-passed-go/pkg/qrcode"
 )
 
 func GetToken() string {
@@ -15,6 +17,8 @@ func GetToken() string {
 	identifier := strconv.Itoa(rand.Intn(1e9) + 1e8 - 1)
 	fmt.Println("please go to")
 	fmt.Println(fmt.Sprintf("https://copy-passed.web.app/VerifyID.html#%s", identifier))
+	fmt.Println("or scan qrcode with app")
+	qrcode.PrintCode(identifier)
 	fmt.Println("to complete the signin")
 
 	formData := map[string]string{"id": identifier}
