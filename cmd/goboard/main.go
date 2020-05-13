@@ -2,12 +2,14 @@ package main
 
 import (
 	"errors"
-	"github.com/bobziuchkovski/writ"
-	"github.com/ocular-data/copy-passed-go/internal/localutils"
 	"io/ioutil"
 	"os"
+
+	"github.com/bobziuchkovski/writ"
+	"github.com/ocular-data/copy-passed-go/internal/localutils"
 )
 
+//CopyPassed type struct for aviable commands
 type CopyPassed struct {
 	HelpFlag  bool `flag:"h, help" description:"Display this help message and exit"`
 	Clipboard bool `flag:"c, clipboard" description:"Copy from the computers clipboard instead of stdin"`

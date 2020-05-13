@@ -12,6 +12,7 @@ import (
 	"github.com/ocular-data/copy-passed-go/pkg/qrcode"
 )
 
+//GetToken walk user through the process of generating a new token
 func GetToken() string {
 	rand.Seed(int64(time.Now().UnixNano()))
 	identifier := strconv.Itoa(rand.Intn(1e9) + 1e8 - 1)

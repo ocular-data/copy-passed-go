@@ -3,10 +3,12 @@ package fireboardtools
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/pkg/errors"
 	"net/http"
+
+	"github.com/pkg/errors"
 )
 
+//SetClipboard given auth tocken and string put string in clipboard
 func SetClipboard(token string, data string) {
 	formData := map[string]string{"id": token, "method": "post", "data": data}
 

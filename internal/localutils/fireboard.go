@@ -9,6 +9,7 @@ import (
 	"github.com/ocular-data/copy-passed-go/pkg/fireboardtools"
 )
 
+//GenerateNewTokenOnError function for if there was an error then generate new tocken
 func GenerateNewTokenOnError(onDone func()) {
 	if r := recover(); r != nil {
 		err := r.(error)
@@ -19,6 +20,7 @@ func GenerateNewTokenOnError(onDone func()) {
 	}
 }
 
+//RetrieveToken gets the tocken stored in the temp folder on computer
 func RetrieveToken(newKey ...bool) string {
 	var token, tempFile string
 	switch uos := runtime.GOOS; uos {

@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+//RevokeToken revokes the given token
 func RevokeToken(token string) {
 	formData := map[string]string{"id": token, "revoke": "true"}
 

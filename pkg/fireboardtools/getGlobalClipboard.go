@@ -3,10 +3,12 @@ package fireboardtools
 import (
 	"bytes"
 	"encoding/json"
-	"github.com/pkg/errors"
 	"net/http"
+
+	"github.com/pkg/errors"
 )
 
+//History struct for keeping past entrys
 type History struct {
 	Hist1 string `json:"hist_1,omitempty"`
 	Hist2 string `json:"hist_2,omitempty"`
@@ -19,11 +21,13 @@ type History struct {
 	Hist9 string `json:"hist_9,omitempty"`
 }
 
+//Clipboard contains entrys
 type Clipboard struct {
 	Last    string  `json:"last"`
 	History History `json:"history,omitempty"`
 }
 
+//GetClipboard given the auth token retrive clipboard
 func GetClipboard(token string) Clipboard {
 	formData := map[string]string{"id": token, "method": "get"}
 
