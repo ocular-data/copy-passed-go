@@ -2,12 +2,11 @@ package qrcode
 
 import (
 	"errors"
-	"fmt"
 	"image"
 	"image/png"
-	"io"
-	"net/http"
 
+	"github.com/boombuler/barcode"
+	"github.com/boombuler/barcode/qr"
 	"github.com/fatih/color"
 )
 
@@ -16,15 +15,13 @@ func PrintCode(data string) {
 	size := 880
 	step := int(size / 22)
 
-	sizeS := fmt.Sprintf("%vx%v", size, size)
-	response, err := http.Get("https://api.qrserver.com/v1/create-qr-code/?size=" + sizeS + "&data=" + data)
-	if err != nil || response.StatusCode != 200 {
-		panic(errors.New("Cant download image"))
+	qrCode, err := qr.Encode(data, qr.M, qr.Auto)
+	if err != nil {
+		panic(errors.New("Problem gnereating qrcode"))
 	}
+	qrCode, _ = barcode.Scale(qrCode, size, size)
 
-	defer response.Body.Close()
-
-	pixels, err := getPixels(response.Body)
+	pixels, err := getPixels(qrCode)
 	if err != nil {
 		panic(errors.New("Promlom decodeing image"))
 	}
@@ -32,13 +29,8 @@ func PrintCode(data string) {
 	printCode(pixels, step)
 }
 
-func getPixels(file io.Reader) ([][]bool, error) {
+func getPixels(img barcode.Barcode) ([][]bool, error) {
 	image.RegisterFormat("png", "png", png.Decode, png.DecodeConfig)
-	img, _, err := image.Decode(file)
-
-	if err != nil {
-		return nil, err
-	}
 
 	bounds := img.Bounds()
 	width, height := bounds.Max.X, bounds.Max.Y
@@ -85,10 +77,11 @@ func printCode(pixels [][]bool, step int) {
 				whiteBackground.Print("\u2584") //▄
 			}
 		}
-		whiteBackground.Println(" ")
+		whiteBackground.Print("\u2003")
+		white.Println()
 	}
-
 	color.Unset()
+
 	for x := 0; x < len(pixels[0])+1; x += step {
 		white.Print("\u2580")
 	}
