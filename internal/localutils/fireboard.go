@@ -2,10 +2,11 @@ package localutils
 
 import (
 	"fmt"
-	"github.com/ocular-data/copy-passed-go/pkg/fireboardtools"
 	"io/ioutil"
 	"os"
 	"runtime"
+
+	"github.com/ocular-data/copy-passed-go/pkg/fireboardtools"
 )
 
 func GenerateNewTokenOnError(onDone func()) {
@@ -21,8 +22,10 @@ func GenerateNewTokenOnError(onDone func()) {
 func RetrieveToken(newKey ...bool) string {
 	var token, tempFile string
 	switch uos := runtime.GOOS; uos {
-	case "darwin", "linux", "freebsd", "openbsd", "android", "netbsd", "solaris", "plan9", "nacl":
+	case "darwin", "linux", "freebsd", "openbsd", "netbsd", "solaris", "plan9", "nacl":
 		tempFile = "/tmp/.CopyPasteFireToken"
+	case "android":
+		tempFile = os.Getenv("HOME") + "/../usr/tmp/.CopyPasteFireToken"
 	case "windows":
 		tempFile = os.Getenv("temp") + "\\CopyPasteFireToken"
 	default:
